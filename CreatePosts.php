@@ -16,10 +16,10 @@ if ($p==NULL){
 else {
 	$query = "INSERT INTO Posts (content, author_id) VALUES ('" . $p . "','" . $u . "')";
 	if ($mysqli->query($query)) {
-		printf("User created successfully!");
+		printf("Post created successfully!");
 	}
 	else {
-		printf("User id taken. User not created");
+		printf("User id " . $u . " does not exist. Post not created");
 	}
 }
 
