@@ -12,21 +12,22 @@ if ($mysqli->connect_errno) {
 if ($u==""){
 	printf("No user");
 }
+else{
+	$query = "SELECT content FROM Posts WHERE author_id='" . $u . "'";
 
-$query = "SELECT content FROM Posts WHERE author_id='" . $u . "'";
-
-if ($result = $mysqli->query($query)) {
-	//Print header row
-	printf("<table><tr><th>" . $u . "'s posts</th></tr>");
-
-	//fetch associative array
-	while ($row = $result->fetch_assoc()) {
-		printf ("<tr><td>%s</td></tr>", $row["content"]);
+	if ($result = $mysqli->query($query)) {
+		//Print header row
+		printf("<table><tr><th>" . $u . "'s posts</th></tr>");
+	
+		//fetch associative array
+		while ($row = $result->fetch_assoc()) {
+			printf ("<tr><td>%s</td></tr>", $row["content"]);
+		}
+		printf("</table>");
+	
+		//free result set
+		$result->free();
 	}
-	printf("</table>");
-
-	//free result set
-	$result->free();
 }
 
 //close connection
