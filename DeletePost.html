@@ -5,9 +5,6 @@
 
 	<body>
 		<form action="DeleteUserPosts.php" method="post">
-			User id: 
-			<select name="u">
-			<option value="">Select...</option>
 			<?php
 			$mysqli = new mysqli("mysql.eecs.ku.edu", "dfruhwir", "sql448", "dfruhwir");
 
@@ -38,7 +35,7 @@
 			?>
 			</select>
 			<br>
-			<input type="submit" value="View posts">
+			<input type="submit" value="Delete posts">
 		</form>
 	</body>
 </html>
