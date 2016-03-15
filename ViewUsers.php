@@ -7,7 +7,7 @@ if ($mysqli->connect_errno) {
     exit();
 }
 
-$query = "SELECT user_id FROM Users ORDER by ID DESC LIMIT 50,5";
+$query = "SELECT user_id FROM Users";
 
 if ($result = $mysqli->query($query)) {
 
