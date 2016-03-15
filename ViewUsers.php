@@ -1,7 +1,7 @@
 <?php
 $mysqli = new mysqli("mysql.eecs.ku.edu", "dfruhwir", "sql448", "dfruhwir");
 
-/* check connection */
+//check connection
 if ($mysqli->connect_errno) {
     printf("Connect failed: %s", $mysqli->connect_error);
     exit();
@@ -10,16 +10,19 @@ if ($mysqli->connect_errno) {
 $query = "SELECT user_id FROM Users";
 
 if ($result = $mysqli->query($query)) {
+	//Print header row
+	printf("<table><tr><th>user_id</th></tr>");
 
-    /* fetch associative array */
+    //fetch associative array
     while ($row = $result->fetch_assoc()) {
-        printf ("%s\n", $row["user_id"]);
+        printf ("<tr><td>%s</td></tr>", $row["user_id"]);
     }
+	printf("</table>");
 
-    /* free result set */
+    //free result set
     $result->free();
 }
 
-/* close connection */
+//close connection
 $mysqli->close();
 ?>
