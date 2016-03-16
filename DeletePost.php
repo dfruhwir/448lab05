@@ -15,7 +15,7 @@ if ($result = $mysqli->query($query)) {
 		$p = $_POST[$row["post_id"]];
 		if ($p == $row["post_id"]) {
 			$del = "DELETE FROM Posts WHERE post_id=" . $p;
-			if ($mysqli->query($del) {
+			if ($mysqli->query($del)) {
 				printf("post_id " . $p . " deleted.<br>");
 			}
 		}
