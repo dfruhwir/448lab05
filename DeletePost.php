@@ -7,17 +7,20 @@ if ($mysqli->connect_errno) {
 	exit();
 }
 
-$query = "SELECT post_id, author_id, content FROM Posts";
+$query = "SELECT post_id FROM Posts";
 
 if ($result = $mysqli->query($query)) {
-	//Print header row
-	printf("<table><tr><th>Delete?</th><th>User</th><th>Post</th></tr>");
-		
 	//fetch associative array
 	while ($row = $result->fetch_assoc()) {
-		printf("<tr><td><input type='checkbox' value='%s'></td><td>%s</td><td>%s</td></tr>", $row["post_id"], $row["author_id"], $row["content"]);
+		$p = $_POST[$row["post_id"]];
+		if ($p == $row["post_id"]) {
+			$del = "DELETE FROM Posts WHERE post_id=" . $p;
+			if ($mysqli->query($del) {
+				printf("post_id " . $p . " deleted.<br>");
+			}
+		}
 	}
-	printf("</table>");
+	
 	
 	//free result set
 	$result->free();
