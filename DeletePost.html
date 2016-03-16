@@ -22,7 +22,7 @@
 		
 				//fetch associative array
 				while ($row = $result->fetch_assoc()) {
-					printf ("<tr><td><input type='checkbox' name='%s' value='%s'></td><td>%s</td><td>%s</td></tr>", $row["post_id"], $row["post_id"], $row["author_id"], $row["content"]);
+					printf ("<tr><td><input type='checkbox' name=%s value=%s></td><td>%s</td><td>%s</td></tr>", $row["post_id"], $row["post_id"], $row["author_id"], $row["content"]);
 				}
 				printf("</table>");
 	
