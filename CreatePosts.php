@@ -16,7 +16,7 @@ if ($p==NULL){
 }
 else {
 	//Attempt insertion
-	$query = "INSERT INTO Posts (content, author_id) VALUES ('" . $p . "','" . $u . "')";
+	$query = 'INSERT INTO Posts (content, author_id) VALUES ("' . $p . '","' . $u . '")';
 	if ($mysqli->query($query)) {
 		printf("Post created successfully!");
 	}

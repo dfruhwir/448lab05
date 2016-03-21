@@ -15,7 +15,7 @@ if ($u==NULL){
 }
 else {
 	//Attempt insertion
-	$query = "INSERT INTO Users (user_id) VALUES ('" . $u . "')";
+	$query = 'INSERT INTO Users (user_id) VALUES ("' . $u . '")';
 	if ($mysqli->query($query)) {
 		printf("User " . $u . " created successfully!");
 	}
