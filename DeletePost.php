@@ -12,11 +12,14 @@ $query = "SELECT post_id FROM Posts";
 if ($result = $mysqli->query($query)) {
 	//fetch associative array
 	while ($row = $result->fetch_assoc()) {
-		$p = $_POST[$row["post_id"]]; //see if post checked
+		//See if post checked
+		$p = $_POST[$row["post_id"]];
 
-		if ($p == $row["post_id"]) { //if checked
+		//If checked
+		if ($p == $row["post_id"]) {
+			//Attempt deletion
 			$del = "DELETE FROM Posts WHERE post_id=" . $p;
-			if ($mysqli->query($del)) { //Attempt deletion
+			if ($mysqli->query($del)) {
 				printf("post_id " . $p . " deleted.<br>");
 			}
 			else {

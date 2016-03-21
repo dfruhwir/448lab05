@@ -8,7 +8,7 @@ if ($mysqli->connect_errno) {
 	printf("Connect failed: %s", $mysqli->connect_error);
 	exit();
 }
-
+//if no user selected
 if ($u==""){
 	printf("No user");
 }
@@ -21,8 +21,11 @@ else{
 	
 		//fetch associative array
 		while ($row = $result->fetch_assoc()) {
+			//Print each post
 			printf ("<tr><td>%s</td></tr>", $row["content"]);
 		}
+
+		//End table
 		printf("</table>");
 	
 		//free result set
